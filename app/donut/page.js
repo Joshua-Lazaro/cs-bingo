@@ -1,0 +1,78 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+
+export default function Donut() {
+  const preRef = useRef(null);
+  const [loading, setLoading] = useState(0);
+  useEffect(() => {
+    let A = 2;
+    let B = 2;
+    const pretag = preRef.current;
+
+    const renderFrame = () => {
+      if (pretag) {
+        let b = [];
+        let z = [];
+        A += 0.03;
+        B += 0.03;
+        let cA = Math.cos(A), sA = Math.sin(A),
+            cB = Math.cos(B), sB = Math.sin(B);
+
+        for (let k = 0; k < 1760; k++) {
+          b[k] = k % 80 === 79 ? "\n" : " ";
+          z[k] = 0;
+        }
+
+        for (let j = 0; j < 6.28; j += 0.07) {
+          let ct = Math.cos(j), st = Math.sin(j);
+          for (let i = 0; i < 6.28; i += 0.02) {
+            let sp = Math.sin(i), cp = Math.cos(i),
+                h = ct + 2,
+                D = 1 / (sp * h * sA + st * cA + 5),
+                t = sp * h * cA - st * sA;
+
+            let x = 0 | (40 + 30 * D * (cp * h * cB - t * sB)),
+                y = 0 | (12 + 15 * D * (cp * h * sB + t * cB)),
+                o = x + 80 * y,
+                N = 0 | (8 * ((st * sA - sp * ct * cA) * cB - sp * ct * sA - st * cA - cp * ct * sB));
+
+            if (y < 22 && y >= 0 && x >= 0 && x < 79 && D > z[o]) {
+              z[o] = D;
+              b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
+            }
+          }
+        }
+        pretag.innerHTML = b.join("");
+      }
+    };
+
+    const loadingInterval = setInterval(() => {
+      setLoading((prev) => (prev + 1) % 4); 
+    }, 700);
+
+    const timer = setInterval(renderFrame, 50);
+    return () => {
+      clearInterval(timer); // Cleanup on unmount
+      clearInterval(loadingInterval); // Cleanup loading interval on unmount
+      };
+  }, []);
+
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center gap-12">
+      <div className="flex flex-col items-center gap-4 rounded-xl p-10 shadow-2xl bg-[#1d1d1d]">
+        <h2 className="text-white font-mono text-xs uppercase tracking-widest">
+          Loading
+          <span className="ml-2 w-6 inline-block">
+            {".".repeat(loading)}
+          </span>
+        </h2>
+        <div className="p-10">
+          <pre
+            ref={preRef}
+            className="font-mono text-[10px] leading-[10px] text-[#eb2124] select-none hover:text-[#eb2124] transition-colors duration-300"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
