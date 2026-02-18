@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
 import Donut from "../donut/page";
+import Image from "next/image";
 
 export default function Bingo() {
   //bingo - a state variable to hold the current bingo word
   //setBingo - a function to update the bingo state variable
-  const [bingo, setBingo] = useState("Click the button to generate a word!");
+  const [bingo, setBingo] = useState("Click the button to begin!");
   const [isGenerating, setIsGenerating] = useState(false);
 
     const wordBank = [
@@ -37,18 +38,19 @@ export default function Bingo() {
     setBingo(selectedWord);
     setTimeout(() => {
       setIsGenerating(false);
-    }, 2000); // Hide the donut after 2 seconds
+    }, 3000); // Hide the donut after 2 seconds
   }
   return (
         <div className="flex flex-col items-center min-h-screen w-full bg-zinc-100 justify-center gap-6">
             <div className="bg-linear-to-r from-[#eb2124] from-75% to-[#001c40] to-25% h-2 w-full absolute top-0 left-0"></div>
             <div className=" flex flex-col items-center justify-center gap-2 pb-5">
-              <h1 className="text-4xl text-[#171717] font-bold mb-8">Bingo Game</h1>
+              <Image 
+              src="/bscomsci.png" alt="BSCOMSCI Logo" width={500} height={300} />
             </div>
 
             <div className="w-150 h-90 flex flex-col items-center gap-7 rounded-xl p-5 shadow-2xl bg-white">
               <div className=" flex-1 flex items-center justify-center">
-                <h1 className="text-3xl text-[#171717] font-semibold flex justify-center items-center"> 
+                <h1 className="text-4xl text-[#171717] font-semibold flex justify-center items-center"> 
                   {/* The Donut container with conditional opacity */}
                   <div className={`z-10 absolute transition-opacity duration-900 ease-in-out ${isGenerating ? 'opacity-100' : 'opacity-0'}`}>
                       <Donut />
