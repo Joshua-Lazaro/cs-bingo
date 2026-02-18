@@ -1,0 +1,61 @@
+{
+  "wordBank": [
+    {
+      "Fundamentals": [
+        { "word": "Variable", "definition": "A named storage that can store a value." },
+        { "word": "Loop", "definition": "A control structure that repeats a block of code." },
+        { "word": "If-Else", "definition": "A conditional branch that runs code based on a test." },
+        { "word": "Boolean", "definition": "A true or false value used in logic." },
+        { "word": "Integer", "definition": "A whole number value, positive or negative." },
+        { "word": "String", "definition": "A sequence of characters used to represent text." },
+        { "word": "Constant", "definition": "A value that does not change after it is defined." },
+        { "word": "Function", "definition": "A reusable block of code that performs a task." },
+        { "word": "Parameter", "definition": "An input value passed into a function." }
+      ],
+      "Languages": [
+        { "word": "Java", "definition": "A general-purpose, class-based programming language." },
+        { "word": "C++", "definition": "A compiled language that extends C with OOP features." },
+        { "word": "Ruby", "definition": "A dynamic, object-oriented scripting language." },
+        { "word": "Swift", "definition": "A modern language for Apple platform development." },
+        { "word": "PHP", "definition": "A server-side scripting language for web development." },
+        { "word": "Go", "definition": "A compiled language designed for simplicity and concurrency." },
+        { "word": "Rust", "definition": "A systems language focused on safety and performance." },
+        { "word": "C#", "definition": "A modern, object-oriented language for the .NET platform." },
+        { "word": "JavaScript", "definition": "A language used to add interactivity to web pages." }
+      ],
+      "Data Structures": [
+        { "word": "Linked List", "definition": "A linear structure of nodes linked by references." },
+        { "word": "Stack", "definition": "A LIFO structure where the last item added is removed first." },
+        { "word": "Queue", "definition": "A FIFO structure where the first item added is removed first." },
+        { "word": "Tree", "definition": "A hierarchical structure with parent and child nodes." },
+        { "word": "FIFO", "definition": "First In, First Out, an ordering principle for queues." },
+        { "word": "Hash Table", "definition": "A structure that maps keys to values using hashing." },
+        { "word": "Heap", "definition": "A tree-based structure used for priority access." },
+        { "word": "Vector", "definition": "A dynamic array that can grow as needed." },
+        { "word": "Matrix", "definition": "A two-dimensional array of values." }
+      ],
+      "Web Dev": [
+        { "word": "HTML", "definition": "The markup language used to structure web pages." },
+        { "word": "CSS", "definition": "A style language used to design web page appearance." },
+        { "word": "div", "definition": "A generic HTML container for grouping content." },
+        { "word": "API", "definition": "A set of rules for accessing a service or data." },
+        { "word": "DOM", "definition": "The tree representation of a web page in the browser." },
+        { "word": "Backend", "definition": "Server-side logic, data processing, and storage." },
+        { "word": "Frontend", "definition": "The client-side UI that users interact with." },
+        { "word": "UI / UX", "definition": "Design of interface look (UI) and user experience (UX)." },
+        { "word": "JSON", "definition": "A lightweight data format using key-value pairs." }
+      ],
+      "Database": [
+        { "word": "CREATE", "definition": "An SQL command used to create database objects." },
+        { "word": "SQL", "definition": "A language for querying and managing relational data." },
+        { "word": "Database", "definition": "An organized collection of data stored electronically." },
+        { "word": "Primary Key", "definition": "A unique identifier for a row in a table." },
+        { "word": "Foreign Key", "definition": "A field that links to a primary key in another table." },
+        { "word": "Normalization", "definition": "A process to reduce redundancy in relational tables." },
+        { "word": "Index", "definition": "A data structure that speeds up lookups in a table." },
+        { "word": "Query", "definition": "A request for data from a database." },
+        { "word": "INSERT", "definition": "An SQL command used to add new records." }
+      ]
+    }
+  ]
+}
