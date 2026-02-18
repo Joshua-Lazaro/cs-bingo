@@ -69,7 +69,7 @@ export default function Donut() {
         <div className="p-5">
           <pre
             ref={preRef}
-            className="font-mono text-[10px] leading-[10px] text-[#eb2124] select-none hover:text-[#eb2124] transition-colors duration-300"
+            className="font-mono text-[10px] leading-2.5 text-[#eb2124] select-none hover:text-[#eb2124] transition-colors duration-300"
           />
         </div>
       </div>
