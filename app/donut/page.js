@@ -48,7 +48,7 @@ export default function Donut() {
 
     const loadingInterval = setInterval(() => {
       setLoading((prev) => (prev + 1) % 4); 
-    }, 700);
+    }, 200);
 
     const timer = setInterval(renderFrame, 50);
     return () => {
@@ -58,15 +58,15 @@ export default function Donut() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-12">
-      <div className="flex flex-col items-center gap-4 rounded-xl p-10 shadow-2xl bg-[#1d1d1d]">
+    <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center gap-4 rounded-xl p-5 shadow-2xl bg-[#1d1d1d]">
         <h2 className="text-white font-mono text-xs uppercase tracking-widest">
           Loading
           <span className="ml-2 w-6 inline-block">
             {".".repeat(loading)}
           </span>
         </h2>
-        <div className="p-10">
+        <div className="p-5">
           <pre
             ref={preRef}
             className="font-mono text-[10px] leading-[10px] text-[#eb2124] select-none hover:text-[#eb2124] transition-colors duration-300"
