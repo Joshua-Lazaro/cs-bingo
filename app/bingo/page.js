@@ -9,6 +9,7 @@ export default function Bingo() {
   const [bingo, setBingo] = useState("Click the button to generate a word!");
   const [isGenerating, setIsGenerating] = useState(false);
   const [definition, setDefinition] = useState("");
+  const [usedWords, setUsedWords] = useState([]);
   
   const allWords = Object.values(wordBank.wordBank?.[0] ?? {}).flat();
 
@@ -19,25 +20,31 @@ export default function Bingo() {
     setBingo("");
     setDefinition("");
 
-    if (!allWords.length) {
-      setBingo("No words found.");
-      setDefinition("");
+    const remainingWords = allWords.filter(
+      word => !usedWords.some(used => used.word == word.word)
+    );
+
+    if (!remainingWords.length) {
+      setBingo("All words have been used, Resetting...");
+      setDefinition("Click button to generate word");
+      setUsedWords([]);
       setIsGenerating(false);
       return;
     }
 
-    const randomIndex = Math.floor(Math.random() * allWords.length);
-    const selectedWord = allWords[randomIndex];
+    const randomIndex = Math.floor(Math.random() * remainingWords.length);
+    const selectedWord = remainingWords[randomIndex];
 
     // Set the word after donut animation (approximately 4.3 seconds)
     setTimeout(() => {
       setBingo(selectedWord.word);
       setDefinition(selectedWord.definition);
-    }, 4300);
+      setUsedWords([...usedWords, selectedWord]);
+    }, 3300);
 
     setTimeout(() => {
       setIsGenerating(false);
-    }, 7000); // Hide the donut after 5 seconds
+    }, 3000); // Hide the donut after 5 seconds
   }
 
   return (
@@ -48,6 +55,9 @@ export default function Bingo() {
         <div className="text-center">
           <h1 className="text-5xl font-bold text-gray-800 mb-2">CS Bingo</h1>
           <p className="text-gray-600 text-lg">Generate random computer science terms</p>
+          <p className="text-gray-500 text-sm mt-2">
+            Words used: {usedWords.length} / {allWords.length}
+          </p>
         </div>
 
         <div className="w-2xl h-100 bg-gray-50 rounded-lg shadow-lg border-lg border-gray-200 my-10 relative flex justify-center items-center min-h-80">
