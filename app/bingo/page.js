@@ -2,11 +2,12 @@
 import { useState } from "react";
 import Donut from "../donut/page";
 import wordBank from "../wordbank.json";
+import Image from "next/image";
 
 export default function Bingo() {
   //bingo - a state variable to hold the current bingo word
   //setBingo - a function to update the bingo state variable
-  const [bingo, setBingo] = useState("Click the button to generate a word!");
+  const [bingo, setBingo] = useState("Click the button to begin!");
   const [isGenerating, setIsGenerating] = useState(false);
   const [definition, setDefinition] = useState("");
   const [usedWords, setUsedWords] = useState([]);
