@@ -54,8 +54,8 @@ export default function Bingo() {
       <div className="w-full max-w-6xl flex flex-col justify-center items-center">
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-5xl font-bold text-gray-800 mb-2">CS Bingo</h1>
-          <p className="text-gray-600 text-lg">Generate random computer science terms</p>
+          <Image src="/bscomsci.png" alt="BS-Comsci Logo"  width={450} height={100} className="mx-auto mt-4 mb-4" />
+          <p className="text-gray-600 text-lg">CS Bingo - Generate random computer science terms</p>
           <p className="text-gray-500 text-sm mt-2">
             Words used: {usedWords.length} / {allWords.length}
           </p>
@@ -69,7 +69,7 @@ export default function Bingo() {
           
           {/* The Bingo text fading in when loading stops */}
           <div className={`absolute text-center transition-opacity ${!isGenerating ? 'opacity-100 delay-700' : 'opacity-0 delay-0'}`}>
-            <span className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#eb2124] to-[#001c40] mb-6 block">
+            <span className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#eb2124] to-[#001c40] mb-6 block">
               {bingo}
             </span>
             <div className="h-1 w-16 bg-gradient-to-r from-[#eb2124] to-[#001c40] mx-auto mb-6"></div>
@@ -79,7 +79,7 @@ export default function Bingo() {
           </div>
         </div>
         <button className="mx-auto bg-red-500 rounded-lg shadow-md p-3">
-          <p className="text-white text-2xl" onClick={generateBingoWord}>Generate Word</p>
+          <p className="text-white text-2xl" onClick={generateBingoWord}>Next Word</p>
         </button>
       </div>
       <div className="bg-linear-to-r from-[#eb2124] from-75% to-[#001c40] to-25% h-2 w-full absolute bottom-0 left-0"></div>
